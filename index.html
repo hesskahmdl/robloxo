@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>RAVEN SYSTEM | C2 DASHBOARD v10.0</title>
+    <style>
+        body { background: #050505; color: #00ff41; font-family: 'Courier New', monospace; margin: 20px; }
+        .terminal { border: 1px solid #00ff41; padding: 20px; background: rgba(0, 20, 0, 0.9); box-shadow: 0 0 15px #00ff41; }
+        .line { margin-bottom: 5px; border-bottom: 1px solid #003300; padding: 5px; }
+        .blink { animation: blinker 1s linear infinite; color: #ff0000; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        h1 { text-shadow: 0 0 10px #00ff41; font-size: 1.5em; }
+        .status { color: #00d4ff; }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <h1>[ RAVEN SYSTEM INTERCEPTOR - SESSION ACTIVE ]</h1>
+        <p class="status">C2 SERVER: ONLINE | ENDPOINT: /api/capture | LISTENING...</p>
+        <hr>
+        <div id="logs">
+            <div class="line">> [SYSTEM] Initializing kernel modules...</div>
+            <div class="line">> [SYSTEM] Waiting for incoming XSS signal...</div>
+        </div>
+        <p class="blink">_</p>
+    </div>
+</body>
+</html>
